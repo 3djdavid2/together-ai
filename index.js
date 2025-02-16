@@ -6,7 +6,8 @@ const client = new Together({
     apiKey: process.env.TOGETHER_API_KEY
 });
 
-const getDescriptionPrompt = "cual es el MONTO y el AÑO que aparece en la imagen adjunta?";
+// const getDescriptionPrompt = "cual es el MONTO y el AÑO que aparece en la imagen adjunta?";
+const getDescriptionPrompt = "cual es el importe de la casilla 0695?";
 const imagePath = "./imagen-de-texto.png";
 
 // Función para convertir la imagen a base64
@@ -17,7 +18,8 @@ const encodeImage = (imagePath) => {
 const base64Image = encodeImage(imagePath);
 
 const stream = await client.chat.completions.create({
-    model: "meta-llama/Llama-Vision-Free",
+    // model: "meta-llama/Llama-Vision-Free",
+    model: "meta-llama/Llama-3.2-11B-Vision-Instruct-Turbo",
     messages: [
         {
             role: "user",
